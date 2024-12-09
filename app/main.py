@@ -1,5 +1,4 @@
 from abc import ABC
-from pyclbr import Class
 from typing import Any
 
 
@@ -8,7 +7,7 @@ class IntegerRange:
         self.min_amount = min_amount
         self.max_amount = max_amount
 
-    def __set_name__(self, owner: Any, name: str) -> None:
+    def __set_name__(self, owner: Any, name: str) -> Any:
         self.protected_name = f"_{name}"
 
     def __get__(self, instance: Any, owner: Any) -> str:
