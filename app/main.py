@@ -11,7 +11,7 @@ class IntegerRange:
     def __set_name__(self, owner: Any, name: str) -> None:
         self.protected_name = f"_{name}"
 
-    def __get__(self, instance: Any, owner: Any) -> None:
+    def __get__(self, instance: Any, owner: Any) -> str:
         return getattr(instance, self.protected_name)
 
     def __set__(self, instance: Any, value: Any) -> None:
@@ -53,7 +53,7 @@ class AdultSlideLimitationValidator(SlideLimitationValidator):
 
 
 class Slide:
-    def __init__(self, name: str, limitation_class: Class) -> None:
+    def __init__(self, name: str, limitation_class: type) -> None:
         self.name = name
         self.limitation_class = limitation_class
 
